@@ -19,7 +19,7 @@ thread_2:
 #include <pthread.h>
 #include <stdio.h>
 
-int i = 0;
+int i = 0; //Husk i og ikke j
 
 void minus(){
 	for (int j = 0; j< 1000000;j++){
