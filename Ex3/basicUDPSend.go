@@ -15,7 +15,7 @@ type Udp_message struct {
 
 func main() {
 	//set up where to send to
-	serverAddr, err := net.ResolveUDPAddr("udp", "129.241.187.143:20002")
+	serverAddr, err := net.ResolveUDPAddr("udp", "129.241.187.143:20004")
 
 	if err != nil {
 		fmt.Println(err)
