@@ -10,9 +10,9 @@ func main() {
 	fmt.Println("driver init returned: ", driver.Init())
 	time.Sleep(time.Second * 5)
 	for {
-		driver.RunFloorUp()
+		driver.RunTopFloor()
 		time.Sleep(time.Second * 5)
-		driver.RunFloorDown()
+		driver.RunBottomFloor()
 		time.Sleep(time.Second * 5)
 	}
 }
