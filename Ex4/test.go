@@ -2,17 +2,28 @@ package main
 
 import (
 	"./udpNet"
+	"strconv"
 	"time"
 )
 
 func main() {
-	msg := make(chan string)
-	broadCastAddr := "129.241.187.255:20004"
+	sendMsg := make(chan string)
+	recieveMsg := make(chan string)
+	broadCastAddr := "129.241.187.255:30004"
+	listenPort := ":30004"
 
-	udpNet.StartSender(broadCastAddr, msg)
+	udpNet.MakeSender(broadCastAddr, sendMsg)
+	udpNet.MakeReciever(listenPort, recieveMsg)
+
+	go func() {
+		for {
+			println(<-recieveMsg)
+		}
+	}()
+
 	i := 0
 	for {
-		msg <- "testing: " + string(i) + "\000"
+		sendMsg <- "testing: " + strconv.Itoa(i) + "\000"
 		time.Sleep(time.Second * 2)
 		i++
 	}
