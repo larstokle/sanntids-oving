@@ -9,6 +9,7 @@ import (
 func main() {
 	fmt.Println("driver init returned: ", driver.Init())
 	time.Sleep(time.Second * 5)
+	
 	for {
 		driver.RunTopFloor()
 		time.Sleep(time.Second * 5)
